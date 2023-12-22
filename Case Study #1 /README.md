@@ -1,11 +1,15 @@
 ![casestudy1](https://github.com/haiilingg/-8-Week-SQL-Challenge/assets/130296433/5504c966-aa6b-4b71-a4eb-c13e9f572374)
 
+### Introduction
+Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
 
+Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
 
 Tools used: MySQL 
+
 Source: [https://8weeksqlchallenge.com/case-study-1/](https://8weeksqlchallenge.com/case-study-1/)
 
-### Q1 What is the total amount each customer spent at the restaurant?
+#### Q1 What is the total amount each customer spent at the restaurant?
 
 ```SQL
 SELECT s.customer_id, SUM(m.price) AS total_amount
@@ -15,7 +19,7 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id ASC;
 ```
 
-### Q2 How many days has each customer visited the restaurant? --
+#### Q2 How many days has each customer visited the restaurant?
 
 ```SQL
 SELECT customer_id, COUNT(DISTINCT order_date)
@@ -23,7 +27,7 @@ FROM sales
 GROUP BY customer_id;
 ```
 
-### Q3 What was the first item from the menu purchased by each customer?--
+### Q3 What was the first item from the menu purchased by each customer?
 
 ```SQL
 WITH order_date AS
@@ -37,7 +41,7 @@ FROM order_date
 WHERE row_num =1
 GROUP BY customer_id, product_name;
 ```
-### Q4 What is the most purchased item on the menu and how many times was it purchased by all customers?--
+### Q4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ```SQL
 SELECT m.product_name, COUNT(s.product_id) AS times_purchased
@@ -48,7 +52,7 @@ ORDER BY times_purchased DESC
 LIMIT 1;
 ```
 
-### Q5 Which item was the most popular for each customer?--
+### Q5 Which item was the most popular for each customer?
 
 ```SQL
 WITH PopularItems AS (
@@ -63,7 +67,7 @@ FROM PopularItems
 WHERE row_num = 1;
 ```
 
-### Q6 Which item was purchased first by the customer after they became a member? --
+### Q6 Which item was purchased first by the customer after they became a member?
 
 ```SQL
 WITH joined_date AS
@@ -80,7 +84,7 @@ WHERE row_num = 1
 ORDER BY customer_id ASC;
 ```
 
-### Q7 Which item was purchased just before the customer became a member? --
+### Q7 Which item was purchased just before the customer became a member?
 ```SQL
 WITH joined_date AS
 (SELECT m.customer_id,s.product_id,
@@ -96,7 +100,7 @@ WHERE row_num = 1
 ORDER BY j.customer_id ASC;
 ```
 
-### Q8 What is the total items and amount spent for each member before they became a member? --
+### Q8 What is the total items and amount spent for each member before they became a member?
 
 ```SQL
 WITH joined_date AS
