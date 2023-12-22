@@ -1,6 +1,11 @@
 
 
 
+
+
+Source: [https://8weeksqlchallenge.com/case-study-1/]()
+
+
 ```SQL
 SELECT s.customer_id, SUM(m.price) AS total_amount
 FROM sales AS s
