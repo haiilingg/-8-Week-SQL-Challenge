@@ -3,7 +3,7 @@
 
 
 
-Source: [https://8weeksqlchallenge.com/case-study-1/]()
+Source: [https://8weeksqlchallenge.com/case-study-1/](https://8weeksqlchallenge.com/case-study-1/)
 
 
 ```SQL
