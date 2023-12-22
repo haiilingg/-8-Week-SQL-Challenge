@@ -32,10 +32,16 @@ Output:
 #### Q2 How many days has each customer visited the restaurant?
 
 ```SQL
-SELECT customer_id, COUNT(DISTINCT order_date)
+SELECT customer_id, COUNT(DISTINCT order_date) As days
 FROM sales
 GROUP BY customer_id;
 ```
+Output:
+| customer_id| days |
+| --- | --- |
+|A| 4 |
+|B| 6 |
+|C| 2 |
 
 #### Q3 What was the first item from the menu purchased by each customer?
 
