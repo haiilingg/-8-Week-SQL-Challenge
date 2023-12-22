@@ -27,7 +27,7 @@ FROM sales
 GROUP BY customer_id;
 ```
 
-### Q3 What was the first item from the menu purchased by each customer?
+#### Q3 What was the first item from the menu purchased by each customer?
 
 ```SQL
 WITH order_date AS
@@ -41,7 +41,7 @@ FROM order_date
 WHERE row_num =1
 GROUP BY customer_id, product_name;
 ```
-### Q4 What is the most purchased item on the menu and how many times was it purchased by all customers?
+#### Q4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ```SQL
 SELECT m.product_name, COUNT(s.product_id) AS times_purchased
@@ -67,7 +67,7 @@ FROM PopularItems
 WHERE row_num = 1;
 ```
 
-### Q6 Which item was purchased first by the customer after they became a member?
+#### Q6 Which item was purchased first by the customer after they became a member?
 
 ```SQL
 WITH joined_date AS
@@ -84,7 +84,7 @@ WHERE row_num = 1
 ORDER BY customer_id ASC;
 ```
 
-### Q7 Which item was purchased just before the customer became a member?
+#### Q7 Which item was purchased just before the customer became a member?
 ```SQL
 WITH joined_date AS
 (SELECT m.customer_id,s.product_id,
@@ -100,7 +100,7 @@ WHERE row_num = 1
 ORDER BY j.customer_id ASC;
 ```
 
-### Q8 What is the total items and amount spent for each member before they became a member?
+#### Q8 What is the total items and amount spent for each member before they became a member?
 
 ```SQL
 WITH joined_date AS
@@ -117,7 +117,7 @@ GROUP BY customer_id
 ORDER BY customer_id ASC;
 ```
 
-### Q9 If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+#### Q9 If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 ```SQL
 WITH points_collected as
 (SELECT s.customer_id,s.product_id,
@@ -133,7 +133,7 @@ FROM points_collected
 GROUP BY customer_id;
  ```
  
-### Q10 In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January? 
+#### Q10 In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January? 
 ```SQL
 WITH jan AS
 (SELECT 
@@ -156,8 +156,8 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 
-## BONUS
-### Join all tables
+### BONUS
+#### Join all tables
 ```SQL
 SELECT s.customer_id,s.order_date,m.product_name,m.price,
 CASE WHEN b.join_date <= s.order_date THEN 'Y'
@@ -168,7 +168,7 @@ LEFT JOIN members AS b ON s.customer_id = b.customer_id
 ORDER BY customer_id;
 ```
 
-### with ranking
+#### with ranking
 ```SQL
 WITH joins AS
 (SELECT s.customer_id,s.order_date,m.product_name,m.price,
