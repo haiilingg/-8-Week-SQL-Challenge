@@ -3,7 +3,7 @@
 
 | Challenge Name| Link |
 | --- | --- |
-|Case Study #1 - Danny's Diner| |
+|Case Study #1 - Danny's Diner| [Click HERE] (https://github.com/haiilingg/-8-Week-SQL-Challenge/tree/main/Case%20Study%20%231%20) |
 |Case Study #2 - Pizza Runner| TBC |
 |Case Study #3 - Foodie-Fi| TBC |
 |Case Study #4 - Data Bank| TBC |
