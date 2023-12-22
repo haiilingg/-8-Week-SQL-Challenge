@@ -23,6 +23,7 @@ ORDER BY s.customer_id ASC;
 ```
 
 Output:
+
 ![image](https://github.com/haiilingg/-8-Week-SQL-Challenge/assets/130296433/36d3c7ea-2c46-4042-882e-ad6b5a4cf6d0)
 
 
