@@ -5,6 +5,9 @@ Danny seriously loves Japanese food so in the beginning of 2021, he decides to e
 
 Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
 
+### ER Diagram
+<img width="731" alt="Screenshot 2023-12-22 at 3 59 38 PM" src="https://github.com/haiilingg/-8-Week-SQL-Challenge/assets/130296433/d4558290-6610-45f0-9183-8d89f224658a">
+
 Tools used: MySQL 
 
 Source: [https://8weeksqlchallenge.com/case-study-1/](https://8weeksqlchallenge.com/case-study-1/)
@@ -18,6 +21,10 @@ INNER JOIN menu AS m ON s.product_id = m.product_id
 GROUP BY s.customer_id
 ORDER BY s.customer_id ASC;
 ```
+
+Output:
+![image](https://github.com/haiilingg/-8-Week-SQL-Challenge/assets/130296433/36d3c7ea-2c46-4042-882e-ad6b5a4cf6d0)
+
 
 #### Q2 How many days has each customer visited the restaurant?
 
