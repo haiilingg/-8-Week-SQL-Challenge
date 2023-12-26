@@ -4,7 +4,8 @@
 Click [HERE](https://8weeksqlchallenge.com/case-study-1/) for the source of this challenge.
 
 ### Case Study Solutions
-- [Solutions](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20/Case%20Study%20Solutions.md)
+- [Normal Solutions](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20/Case%20Study%20Solutions.md)
+- [Bonus](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20/Bonus%20Solutions.md)
 
 ### Business Case
 Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
