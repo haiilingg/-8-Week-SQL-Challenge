@@ -43,6 +43,16 @@ FROM order_date
 WHERE row_num =1
 GROUP BY customer_id, product_name;
 ```
+
+Output:
+| customer_id|product_name|
+| --- | --- |
+|A| sushi  | 
+|A| curry | 
+|B| curry | 
+|C| ramen | 
+
+
 #### Q4 What is the most purchased item on the menu and how many times was it purchased by all customers?
 
 ```SQL
@@ -53,6 +63,11 @@ GROUP BY m.product_name
 ORDER BY times_purchased DESC
 LIMIT 1;
 ```
+
+Output:
+| product_name|product_name|
+| --- | times_purchased|
+|ramen| 8 | 
 
 ### Q5 Which item was the most popular for each customer?
 
@@ -68,6 +83,14 @@ SELECT customer_id, product_name AS most_popular_item,item_count
 FROM PopularItems
 WHERE row_num = 1;
 ```
+Output:
+| customer_id|most_popular_item |item_count|
+| --- | --- |--- |
+|A| ramen | 3|
+|B| curry | 2|
+|B| sushi | 2|
+|B| ramen | 2|
+|C| ramen | 3|
 
 #### Q6 Which item was purchased first by the customer after they became a member?
 
@@ -85,6 +108,11 @@ INNER JOIN menu ON joined_date.product_id=menu.product_id
 WHERE row_num = 1
 ORDER BY customer_id ASC;
 ```
+Output:
+| customer_id|product_name|
+| --- | --- |
+|A| ramen | 
+|B| sushi | 
 
 #### Q7 Which item was purchased just before the customer became a member?
 ```SQL
@@ -102,6 +130,13 @@ WHERE row_num = 1
 ORDER BY j.customer_id ASC;
 ```
 
+Output:
+| customer_id|product_name|
+| --- | --- |
+|A| sushi | 
+|B| sushi | 
+
+
 #### Q8 What is the total items and amount spent for each member before they became a member?
 
 ```SQL
@@ -113,11 +148,18 @@ INNER JOIN menu ON s.product_id = menu.product_id
 INNER JOIN members AS m ON s.customer_id = m.customer_id
 WHERE s.order_date < m.join_date)
 
-SELECT customer_id, COUNT(product_id), sum(price)
+SELECT customer_id, COUNT(product_id) AS total_items, sum(price) AS total_amount
 FROM joined_date
 GROUP BY customer_id
 ORDER BY customer_id ASC;
 ```
+
+Output:
+| customer_id|total_items |total_amount|
+| --- | --- |--- |
+|A| 2 | 25|
+|B| 3 | 40|
+
 
 #### Q9 If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 ```SQL
@@ -134,6 +176,13 @@ SELECT customer_id,SUM(points) AS total_points
 FROM points_collected
 GROUP BY customer_id;
  ```
+
+Output:
+| customer_id| days |
+| --- | --- |
+|A| 860 |
+|B| 940 |
+|C| 360 |
  
 #### Q10 In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January? 
 ```SQL
@@ -157,6 +206,11 @@ INNER JOIN menu ON s.product_id = menu.product_id
 GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
+Output:
+| customer_id| points |
+| --- | --- |
+|A| 1020 |
+|B| 320 |
 
 ### BONUS
 #### Join all tables
