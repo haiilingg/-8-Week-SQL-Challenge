@@ -11,8 +11,8 @@ Output:
 |txn_type|unique_count|total_amount|
 | --- | --- | --- |
 |deposit|2671|1359168|
-|withdrawal|1580| x |
-|purchase|1617| x |
+|withdrawal|1580|793003|
+|purchase|1617|806537|
 
 #### Q2 What is the average total historical deposit counts and amounts for all customers?
 
@@ -84,7 +84,7 @@ GROUP BY month
 ORDER BY month;
 
 Output:
-|month|percentage_increase|
+|month_m|percentage_increase|
 | --- | --- | 
 |1|68.6000| 
 |2|41.3187|
