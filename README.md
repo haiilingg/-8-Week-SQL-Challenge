@@ -2,7 +2,7 @@
 
 I saw some people completing this challenge on LinkedIn and find it really interesting. Hence, here I go !
 
-I'm currently in the midst of completing Case Study #2, so please bear with me as I upload the solutions for each case study.
+Please bear with me as I upload the solutions for each case study.
 
 
 Table of contents:
