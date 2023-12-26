@@ -4,8 +4,8 @@
 Click [HERE](https://8weeksqlchallenge.com/case-study-4/) for the source of this challenge.
 
 ### Case Study Solutions
--[A. Customer Nodes Exploration](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%234%3A%20Data%20Bank/%20A.%20Customer%20Nodes%20Exploration.md)
--[B. Customer Transactions](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%234%3A%20Data%20Bank/B.%20Customer%20Transactions%20.md)
+- [A. Customer Nodes Exploration](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%234%3A%20Data%20Bank/%20A.%20Customer%20Nodes%20Exploration.md)
+- [B. Customer Transactions](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%234%3A%20Data%20Bank/B.%20Customer%20Transactions%20.md)
 
 ### Business Case
 There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches.
