@@ -46,3 +46,20 @@ ELSE RANK () OVER (PARTITION BY customer_id,member
 ORDER BY order_date) END AS ranking 
 FROM joins;
 ```
+customer_id| order_date|product_name|price|member|ranking
+| --- | --- | --- | --- | --- | --- | 
+|A|01/01/2021|sushi|10|N|NULL|
+|A|01/01/2021|curry|15|N|NULL|
+|A|07/01/2021|curry|15|Y|1|
+|A|10/01/2021|ramen|12|Y|2|
+|A|11/01/2021|ramen|12|Y|3|
+|A|11/01/2021|ramen|12|Y|3|
+|B|01/01/2021|curry|15|N|NULL|
+|B|02/01/2021|curry|15|N|NULL|
+|B|04/01/2021|sushi|10|N|NULL|
+|B|11/01/2021|sushi|10|Y|1|
+|B|16/01/2021|ramen|12|Y|2|
+|B|01/02/2021|ramen|12|Y|3|
+|C|01/01/2021|ramen|12|N|NULL|
+|C|01/01/2021|ramen|12|N|NULL|
+|C|07/01/2021|ramen|12|N|NULL|
