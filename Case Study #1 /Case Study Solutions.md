@@ -65,7 +65,7 @@ LIMIT 1;
 ```
 
 Output:
-| product_name|product_name|
+| product_name|times_purchased|
 | --- | ---|
 |ramen| 8 | 
 
