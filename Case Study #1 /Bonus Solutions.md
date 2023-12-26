@@ -30,7 +30,7 @@ customer_id| order_date|product_name|price|member
 |C|07/01/2021|ramen|12|N|
 
 
-#### with ranking
+#### With ranking
 ```SQL
 WITH joins AS
 (SELECT s.customer_id,s.order_date,m.product_name,m.price,
