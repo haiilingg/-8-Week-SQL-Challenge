@@ -84,7 +84,7 @@ GROUP BY month
 ORDER BY month;
 
 Output:
-|month_m|percentage_increase|
+|month|percentage_increase|
 | --- | --- | 
 |1|68.6000| 
 |2|41.3187|
