@@ -82,15 +82,11 @@ AVG(CASE WHEN total_net_balance > 0.05 * ABS(total_net_balance) THEN 1 ELSE 0 EN
 FROM CustomerBalances
 GROUP BY month
 ORDER BY month;
+ ```
 
 Output:
 |month|percentage_increase|
 | --- | --- |
-|1|68.6| 
-|1|41.3187|
-|1|37.7193|
-|1|40.4531|
-
 |1|68.6000| 
 |2|41.3187|
 |3|37.7193|
