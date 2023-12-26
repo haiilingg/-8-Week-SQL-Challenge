@@ -2,9 +2,14 @@
 #### Q1 How many unique nodes are there on the Data Bank system?
 
 ``` MYSQL
-SELECT COUNT(DISTINCT node_id)
+SELECT COUNT(DISTINCT node_id) AS unique_nodes
 FROM customer_nodes;
 ```
+
+Output:
+| unique_nodes|
+| --- | 
+|5| 
 
 #### Q2 What is the number of nodes per region? 
 
@@ -14,6 +19,14 @@ FROM customer_nodes
 GROUP BY region_id
 ORDER BY region_id;
 ```
+Output:
+|region_id|num_of_nodes|
+| --- | --- | 
+|1|1540| 
+|2|1470|
+|3|1428|
+|4|1330|
+|5|1232|
 
 #### Q3 How many customers are allocated to each region?
 
