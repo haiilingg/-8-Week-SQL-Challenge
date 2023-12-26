@@ -1,7 +1,7 @@
 ### A. Customer Nodes Exploration
 ### Q1 How many unique nodes are there on the Data Bank system?
 
-```
+``` MYSQL
 SELECT COUNT(DISTINCT node_id)
 FROM customer_nodes;
 ```
