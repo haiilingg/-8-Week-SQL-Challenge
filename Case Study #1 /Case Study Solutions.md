@@ -66,7 +66,7 @@ LIMIT 1;
 
 Output:
 | product_name|product_name|
-| --- | times_purchased|
+| --- | ---|
 |ramen| 8 | 
 
 ### Q5 Which item was the most popular for each customer?
