@@ -94,6 +94,10 @@ INNER JOIN runner_orders AS r ON PizzaChanges.order_id = r.order_id
 WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%'
 GROUP BY changes;
 ```
+changes| count|
+| --- | --- |
+|at least 1 change|11|
+|no changes|1|
 
 #### Q8 How many pizzas were delivered that had both exclusions and extras?
 ``` MYSQL
