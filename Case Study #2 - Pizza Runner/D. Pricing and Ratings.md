@@ -15,6 +15,12 @@ WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%'
 GROUP BY pp.pizza_id, pp.pizza_name;
 ```
 
+Output:
+|pizza_id||pizza_name|total_pizzas|total_income|
+| --- | --- |--- |
+|1| Meatlovers |9| 108|
+|2| Vegetarian |3| 30|
+
 #### Q2 What if there was an additional $1 charge for any pizza extras? Add cheese is $1 extra
 ``` MySQL
 WITH price_of_pizza AS
@@ -30,6 +36,12 @@ INNER JOIN runner_orders AS r ON c.order_id = r.order_id
 WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%'
 GROUP BY pp.pizza_id, pp.pizza_name;
 ```
+
+Output:
+|pizza_id||pizza_name|total_income|
+| --- | --- |--- |
+|1| Meatlovers | 110|
+|2| Vegetarian | 31|
 
 #### Q3 The Pizza Runner team now wants to add an additional ratings system that allows customers to rate their runner, how would you design an additional table for this new dataset - generate a schema for this new table and insert your own data for ratings for each successful customer order between 1 to 5.
 ``` MySQL
@@ -59,7 +71,29 @@ VALUES
   ('9', '103', '2','1',NULL, 'Customer Cancellation',NULL),
   ('10', '104','1','1','10mins', 'N/A','3'),
   ('10', '104','1', '1','10mins', 'N/A','3');
+
+SELECT *
+FROM ratings;
 ```
+
+Output of new schema:
+| order_id | customer_id | runner_id | pizza_id | duration | cancellation              | rating_given |
+|----------|-------------|-----------|----------|----------|---------------------------|--------------|
+| 1        | 101         | 1         | 1        | 32 mins  | N/A                       | 5            |
+| 2        | 101         | 1         | 1        | 27 mins  | N/A                       | 4            |
+| 3        | 102         | 1         | 1        | 20 mins  | N/A                       | 4            |
+| 3        | 102         | 1         | 2        | 20 mins  | N/A                       | 4            |
+| 4        | 103         | 2         | 1        | 40 mins  | N/A                       | 5            |
+| 4        | 103         | 2         | 1        | 40 mins  | N/A                       | 5            |
+| 4        | 103         | 2         | 2        | 40 mins  | N/A                       | 5            |
+| 5        | 104         | 3         | 1        | 15 mins  | N/A                       | 4            |
+| 6        | 101         | 3         | 2        | NULL     | Restaurant Cancellation | NULL         |
+| 7        | 105         | 2         | 2        | 25 mins  | N/A                       | 3            |
+| 8        | 102         | 2         | 1        | 15 mins  | N/A                       | 2            |
+| 9        | 103         | 2         | 1        | NULL     | Customer Cancellation    | NULL         |
+| 10       | 104         | 1         | 1        | 10 mins  | N/A                       | 3            |
+| 10       | 104         | 1         | 1        | 10 mins  | N/A                       | 3            |
+
 
 #### Q4 Using your newly generated table - can you join all of the information together to form a table which has the following information for successful deliveries?(customer_id,order_id,runner_id,rating,order_time,pickup_time,Time between order and pickup, Delivery duration,Average speed,Total number of pizzas)
 ``` MySQL
@@ -71,6 +105,7 @@ WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%'
 GROUP BY c.customer_id,c.order_id,r.runner_id,ra.rating_given,c.order_time,r.pickup_time,r.duration;
 ```
 
+Output:
 | customer_id | order_id | runner_id | rating_given | order_time | pickup_time | order_vs_pickup_time | duration | avg_speed | no_of_pizza |
 |-------------|----------|-----------|--------------|------------|-------------|----------------------|----------|-----------|-------------|
 | 101         | 1        | 1         | 5            | 01/01/2020 18:05 | 01/01/2020 18:15 | 10 | 32 minutes | 37.5 | 1 |
