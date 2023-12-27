@@ -71,6 +71,18 @@ WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%'
 GROUP BY c.customer_id,c.order_id,r.runner_id,ra.rating_given,c.order_time,r.pickup_time,r.duration;
 ```
 
+| customer_id | order_id | runner_id | rating_given | order_time | pickup_time | order_vs_pickup_time | duration | avg_speed | no_of_pizza |
+|-------------|----------|-----------|--------------|------------|-------------|----------------------|----------|-----------|-------------|
+| 101         | 1        | 1         | 5            | 01/01/2020 18:05 | 01/01/2020 18:15 | 10 | 32 minutes | 37.5 | 1 |
+| 101         | 2        | 1         | 4            | 01/01/2020 19:00 | 01/01/2020 19:10 | 10 | 27 minutes | 44.44 | 1 |
+| 102         | 3        | 1         | 4            | 02/01/2020 23:51 | 03/01/2020 0:12 | 21 | 20 mins | 40.2 | 4 |
+| 103         | 4        | 2         | 5            | 04/01/2020 13:23 | 04/01/2020 13:53 | 29 | 40 | 35.1 | 9 |
+| 104         | 5        | 3         | 4            | 08/01/2020 21:00 | 08/01/2020 21:10 | 10 | 15 | 40 | 1 |
+| 105         | 7        | 2         | 3            | 08/01/2020 21:20 | 08/01/2020 21:30 | 10 | 25 mins | 60 | 1 |
+| 102         | 8        | 2         | 2            | 09/01/2020 23:54 | 10/01/2020 0:15 | 20 | 15 minute | 93.6 | 1 |
+| 104         | 10       | 1         | 3            | 11/01/2020 18:34 | 11/01/2020 18:50 | 15 | 10 minutes | 60 | 4 |
+
+
 #### Q5 If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
 ``` MySQL
 WITH price_of_pizza AS
@@ -78,9 +90,17 @@ WITH price_of_pizza AS
 CASE WHEN pizza_id = '1' THEN 12 WHEN pizza_id = '2' THEN 10 ELSE 0 END AS pizza_price
 FROM pizza_names)
 
-SELECT SUM(pp.pizza_price),SUM(AVG(r.distance)) * 0.30 AS cost ,SUM(pp.pizza_price) - SUM(r.distance * 0.30) AS net_income
+SELECT SUM(pp.pizza_price),SUM(AVG_distance) * 0.30 AS cost, SUM(pp.pizza_price) - SUM(AVG_distance * 0.30) AS net_income
 FROM price_of_pizza AS pp
 INNER JOIN customer_orders AS c ON pp.pizza_id = c.pizza_id
-INNER JOIN runner_orders AS r ON c.order_id = r.order_id
-WHERE COALESCE(r.cancellation, '') NOT LIKE '%Cancellation%';
+INNER JOIN (SELECT order_id, AVG(distance) AS AVG_distance
+    FROM runner_orders
+    WHERE COALESCE(cancellation, '') NOT LIKE '%Cancellation%'
+    GROUP BY order_id
+) AS r ON c.order_id = r.order_id;
 ```
+
+Output:
+|pizza_price|cost|net_income|
+| --- | --- |--- |
+|138| 64.62 | 73.38|
