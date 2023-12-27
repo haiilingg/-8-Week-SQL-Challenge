@@ -16,8 +16,8 @@ GROUP BY pp.pizza_id, pp.pizza_name;
 ```
 
 Output:
-|pizza_id||pizza_name|total_pizzas|total_income|
-| --- | --- |--- |
+|pizza_id|pizza_name|total_pizzas|total_income|
+| --- | --- |--- |--- |
 |1| Meatlovers |9| 108|
 |2| Vegetarian |3| 30|
 
@@ -38,7 +38,7 @@ GROUP BY pp.pizza_id, pp.pizza_name;
 ```
 
 Output:
-|pizza_id||pizza_name|total_income|
+|pizza_id|pizza_name|total_income|
 | --- | --- |--- |
 |1| Meatlovers | 110|
 |2| Vegetarian | 31|
