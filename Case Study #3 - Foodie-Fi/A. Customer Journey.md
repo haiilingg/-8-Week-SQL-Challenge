@@ -10,6 +10,7 @@ WHERE s.customer_id IN (1,2,11,13,15,16,18,19);
 ```
 
 #### Output:
+#### Customer 1
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 1|0|trial|01/08/2020
@@ -17,6 +18,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 1 proceeded with the basic monthly plan after their trial plan ended.
 
+#### Customer 2
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 2|0|trial|20/09/2020
@@ -24,6 +26,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 2 proceeded with the pro annual plan after their trial plan ended.
 
+#### Customer 11
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 11|0|trial|19/11/2020
@@ -31,6 +34,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 11 did not proceed with any paid plans after their trial plan ended; they churned.
 
+#### Customer 13
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 13|0|trial|15/12/2020
@@ -39,6 +43,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 13 proceeded with the basic monthly plan after their trial plan ended, and upgraded to the pro monthly plan 3 months afterwards.
 
+#### Customer 15
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 15|0|trial|17/03/2020
@@ -47,6 +52,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 15 proceeded with the pro monthly plan after their trial plan ended, but churned 1 month later.
 
+#### Customer 16
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 16|0|trial|31/05/2020
@@ -55,6 +61,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 16 proceeded with the basic monthly plan after their trial plan ended, and upgraded to the pro annual plan 4 months afterwards.
 
+#### Customer 18
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 18|0|trial|06/07/2020
@@ -62,6 +69,7 @@ customer_id	|plan_id	|plan_name	|start_date
 
 Description: Customer 18 proceeded with the po monthly plan after their trial plan ended.
 
+#### Customer 19
 customer_id	|plan_id	|plan_name	|start_date
 --|--|--|--|
 19|0|trial|22/06/2020
@@ -72,4 +80,4 @@ Description: Customer 19 proceeded with the pro monthly plan after their trial p
 
 #### General Findings:
 1. All customers started with the "trial" plan before subscribing to any paid plans. As for customer 11,they churned rightafter their trial plan ended and did not proceed with any paid plans.
-
+2. For customers that changed plans, they're mostly upgrading their plans from a cheaper plan to a more expensive plan.
