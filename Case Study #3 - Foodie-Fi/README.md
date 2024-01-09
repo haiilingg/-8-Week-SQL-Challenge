@@ -6,7 +6,7 @@ Click [HERE](https://8weeksqlchallenge.com/case-study-3/) for the source of this
 
 ### Case Study Solutions
 - [A. Customer Journey](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%233%20-%20Foodie-Fi/A.%20Customer%20Journey.md)
-- [B. Data Analysis Questions]()
+- [B. Data Analysis Questions](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%233%20-%20Foodie-Fi/B.%20Data%20Analysis%20Questions.md)
 - [C. Challenge Payment Question]()
 - [D. Outside The Box Questions]()
 
