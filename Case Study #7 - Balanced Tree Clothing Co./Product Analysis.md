@@ -103,6 +103,20 @@ ORDER BY segment_id;
 ```
 
 #### Output:
+|segment_id|segment_name|prod_id|product_name|revenue|revenue_percentage|
+|---|---|---|---|---|---|
+|3|Jeans|c4a632|Navy Oversized Jeans - Womens|50128|24.06|
+|3|Jeans|e31d39|Cream Relaxed Jeans - Womens|37070|17.79|
+|3|Jeans|e83aa3|Black Straight Jeans - Womens|121152|58.15|
+|4|Jacket|72f5d4|Indigo Rain Jacket - Womens|71383|19.45|
+|4|Jacket|d5e9a6|Khaki Suit Jacket - Womens|86296|23.51|
+|4|Jacket|9ec847|Grey Fashion Jacket - Womens|209304|57.03|
+|5|Shirt|5d267b|White Tee Shirt - Mens|152000|37.43|
+|5|Shirt|2a2353|Blue Polo Shirt - Mens|217683|53.6|
+|5|Shirt|c8d436|Teal Button Up Shirt - Mens|36460|8.98|
+|6|Socks|b9a74d|White Striped Socks - Mens|62135|20.18|
+|6|Socks|2feb6b|Pink Fluro Polkadot Socks - Mens|109330|35.5|
+|6|Socks|f084eb|Navy Solid Socks - Mens|136512|44.33|
 
 #### Q7 What is the percentage split of revenue by segment for each category?
 ```Mysql
@@ -117,6 +131,12 @@ FROM split_cte
 ORDER BY category_id;
 ```
 #### Output:
+|category_id|category_name|segment_id|segment_name|revenue|revenue_percentage|
+|---|---|---|---|---|---|
+|1|Womens|3|Jeans|208350|36.21|
+|1|Womens|4|Jacket|366983|63.79|
+|2|Mens|5|Shirt|406143|56.87|
+|2|Mens|6|Socks|307977|43.13|
 
 #### Q8 What is the percentage split of total revenue by category?
 ```mysql
@@ -128,6 +148,10 @@ GROUP BY pd.category_id,pd.category_name;
 ```
 
 #### Output:
+|category_id| category_name|revenue_percentage|
+|---|---|---|
+|1	|Womens	|44.62|
+|2	|Mens	|55.38|
 
 #### Q9 What is the total transaction “penetration” for each product? (hint: penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
 ```mysql
