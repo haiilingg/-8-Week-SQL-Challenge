@@ -4,7 +4,7 @@ SELECT COUNT(DISTINCT txn_id) AS unique_transactions
 FROM balanced_tree.sales;
 ```
 
-Output:
+#### Output:
 |unique_transactions|
 | --- |
 |2500| 
@@ -19,7 +19,8 @@ WITH unique_products_cte AS
 SELECT ROUND(AVG(unique_products), 2) AS average_unique_products
 FROM unique_products_cte;
 ```
-Output:
+
+#### Output:
 |average_unique_products|
 | --- |
 |6.04| 
@@ -34,6 +35,7 @@ SELECT ROUND(SUM(discount/100 * qty*price)/COUNT(DISTINCT txn_id),2) AS average_
 FROM balanced_tree.sales;
 ```
 
+#### Output:
 |average_discount|
 | --- |
 |62.49| 
@@ -47,7 +49,7 @@ FROM balanced_tree.sales
 GROUP BY member;
 ```
 
-Output:
+#### Output:
 |member|member_percentage|
 | --- | --- | 
 |t|60.03| 
@@ -61,7 +63,7 @@ FROM balanced_tree.sales
 GROUP BY member;
 ```
 
-Output:
+#### Output:
 |member|average_revenue |
 | --- | --- | 
 |t|683476.13|
