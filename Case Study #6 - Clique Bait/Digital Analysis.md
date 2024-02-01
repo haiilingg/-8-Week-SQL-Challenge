@@ -1,8 +1,12 @@
 #### 1. How many users are there?
 ```Mysql
-SELECT COUNT(DISTINCT user_id)
+SELECT COUNT(DISTINCT user_id) AS users
 FROM clique_bait.users;
 ```
+#### Output:
+| users|
+| --- |
+|500|
 
 #### 2.How many cookies does each user have on average?
 ```Mysql
@@ -10,12 +14,26 @@ SELECT ROUND(COUNT(cookie_id)/COUNT(DISTINCT user_id),2) AS avg_cookies
 FROM clique_bait.users;
 ```
 
+#### Output:
+|avg_cookies|
+| --- |
+|3.56|
+
 #### 3.What is the unique number of visits by all users per month?
 ```Mysql
 SELECT MONTH(event_time) AS Month, COUNT(DISTINCT visit_id) AS unique_visits
 FROM clique_bait.events
 GROUP BY Month;
 ```
+
+#### Output:
+|Month|unique_visits|
+| --- | --- |
+|1|	876|
+|2|	1488|
+|3|	916|
+|4|	248|
+|5|	36|
 
 #### 4.What is the number of events for each event type?
 ```Mysql
