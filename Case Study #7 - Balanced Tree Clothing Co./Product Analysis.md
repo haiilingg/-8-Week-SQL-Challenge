@@ -89,10 +89,73 @@ WHERE row_num =1;
 |1|Womens|9ec847|Grey Fashion Jacket - Womens|3876|
 |2|Mens	|2a2353	|Blue Polo Shirt - Mens	|3819|
 
-
-
 #### Q6 What is the percentage split of revenue by product for each segment?
+```Mysql
+WITH split_cte AS
+(SELECT pd.segment_id,pd.segment_name,s.prod_id,pd.product_name, SUM(s.qty * s.price) AS revenue
+ FROM balanced_tree.sales s
+INNER JOIN balanced_tree.product_details pd ON s.prod_id = pd.product_id
+GROUP BY pd.segment_id,pd.segment_name,s.prod_id,pd.product_name)
+
+SELECT *, ROUND(100* revenue / (SUM(revenue) OVER (PARTITION BY segment_id)), 2) AS revenue_percentage
+FROM split_cte 
+ORDER BY segment_id;
+```
+
+#### Output:
+
 #### Q7 What is the percentage split of revenue by segment for each category?
+```Mysql
+WITH split_cte AS
+(SELECT pd.category_id,pd.category_name,pd.segment_id,pd.segment_name, SUM(s.qty * s.price) AS revenue
+ FROM balanced_tree.sales s
+INNER JOIN balanced_tree.product_details pd ON s.prod_id = pd.product_id
+GROUP BY pd.category_id,pd.category_name,pd.segment_id,pd.segment_name)
+
+SELECT *, ROUND(100* revenue / (SUM(revenue) OVER (PARTITION BY category_id)), 2) AS revenue_percentage
+FROM split_cte 
+ORDER BY category_id;
+```
+#### Output:
+
 #### Q8 What is the percentage split of total revenue by category?
+```mysql
+SELECT pd.category_id,pd.category_name,
+ROUND(100* SUM(s.qty * s.price) / (SELECT SUM(s.qty * s.price) AS revenue FROM balanced_tree.sales s ), 2) AS revenue_percentage  
+FROM balanced_tree.sales s
+INNER JOIN balanced_tree.product_details pd ON s.prod_id = pd.product_id
+GROUP BY pd.category_id,pd.category_name;
+```
+
+#### Output:
+
 #### Q9 What is the total transaction “penetration” for each product? (hint: penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
+```mysql
+SELECT s.prod_id, pd.product_name,ROUND(COUNT(s.txn_id)/ (SELECT COUNT(DISTINCT s.txn_id) 
+FROM balanced_tree.sales s), 3) AS penetration
+FROM balanced_tree.sales s
+INNER JOIN balanced_tree.product_details pd ON s.prod_id = pd.product_id
+GROUP BY s.prod_id,pd.product_name;
+```
+
+#### Output:
+
 #### Q10 What is the most common combination of at least 1 quantity of any 3 products in a 1 single transaction?
+```mysql
+SELECT s.prod_id,pd.product_name,s1.prod_id,pd1.product_name, s2.prod_id, pd2.product_name,COUNT(*) AS frequency
+FROM balanced_tree.sales s
+JOIN balanced_tree.sales s1 ON s1.txn_id = s.txn_id
+AND s.prod_id < s1.prod_id 
+JOIN balanced_tree.sales s2 ON s2.txn_id = s1.txn_id
+AND s1.prod_id < s2.prod_id
+INNER JOIN balanced_tree.product_details pd ON s.prod_id = pd.product_id
+INNER JOIN balanced_tree.product_details pd1 ON s1.prod_id = pd1.product_id
+INNER JOIN balanced_tree.product_details pd2 ON s2.prod_id = pd2.product_id
+GROUP BY s.prod_id,s1.prod_id, s2.prod_id,pd.product_name,pd1.product_name, pd2.product_name
+ORDER BY 7 DESC
+LIMIT 1;
+```
+
+#### Output:
+
+
