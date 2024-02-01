@@ -7,7 +7,7 @@ Click [HERE](https://8weeksqlchallenge.com/case-study-7/) for the source of this
 ### Case Study Solutions
 - [A. High Level Sales Analysis](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%237%20-%20Balanced%20Tree%20Clothing%20Co./High%20Level%20Sales%20Analysis.md)
 - [B. Transaction Analysis](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%237%20-%20Balanced%20Tree%20Clothing%20Co./Transaction%20Analysis.md)
-- [C. Product Analysis]()
+- [C. Product Analysis](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%237%20-%20Balanced%20Tree%20Clothing%20Co./Product%20Analysis.md)
   
 ### Business Case
 Balanced Tree Clothing Company prides themselves on providing an optimised range of clothing and lifestyle wear for the modern adventurer!
