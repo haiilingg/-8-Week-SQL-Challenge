@@ -5,7 +5,7 @@
 Click [HERE](https://8weeksqlchallenge.com/case-study-6/) for the source of this challenge.
 
 ### Case Study Solutions
-- [A. Digital Analysis]()
+- [A. Digital Analysis](https://github.com/haiilingg/-8-Week-SQL-Challenge/blob/main/Case%20Study%20%236%20-%20Clique%20Bait/Digital%20Analysis.md)
 - [B. Product Funnel Analysis]()
 - [C. Campaigns Analysis]()
 
