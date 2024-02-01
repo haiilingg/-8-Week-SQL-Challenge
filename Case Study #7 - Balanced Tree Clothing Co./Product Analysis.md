@@ -139,6 +139,20 @@ GROUP BY s.prod_id,pd.product_name;
 ```
 
 #### Output:
+|prod_id|product_name|penetration|
+|---|---|---|
+|c4a632|Navy Oversized Jeans - Womens|0.51|
+|5d267b|White Tee Shirt - Mens|0.507|
+|b9a74d|White Striped Socks - Mens|0.497|
+|2feb6b|Pink Fluro Polkadot Socks - Mens|0.503|
+|e31d39|Cream Relaxed Jeans - Womens|0.497|
+|72f5d4|Indigo Rain Jacket - Womens|0.5|
+|2a2353|Blue Polo Shirt - Mens|0.507|
+|f084eb|Navy Solid Socks - Mens|0.512|
+|e83aa3|Black Straight Jeans - Womens|0.498|
+|d5e9a6|Khaki Suit Jacket - Womens|0.499|
+|9ec847|Grey Fashion Jacket - Womens|0.51|
+|c8d436|Teal Button Up Shirt - Mens|0.497|
 
 #### Q10 What is the most common combination of at least 1 quantity of any 3 products in a 1 single transaction?
 ```mysql
@@ -158,4 +172,7 @@ LIMIT 1;
 
 #### Output:
 
+|prod_id	|product_name	|prod_id	|product_name	|prod_id	|product_name	|frequency|
+|--|--|--|--|--|--|--|
+|5d267b|	White Tee Shirt - Mens	|9ec847	|Grey Fashion Jacket - Womens|	c8d436	|Teal Button Up Shirt - Mens|	352|
 
