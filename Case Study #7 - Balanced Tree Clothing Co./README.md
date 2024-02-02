@@ -15,5 +15,6 @@ Balanced Tree Clothing Company prides themselves on providing an optimised range
 Danny, the CEO of this trendy fashion company has asked you to assist the team’s merchandising teams analyse their sales performance and generate a basic financial report to share with the wider business.
 
 ### ER Diagram
+![image](https://github.com/haiilingg/-8-Week-SQL-Challenge/assets/130296433/b6f12089-23dc-44b5-819d-3000f7419aa4)
 
 
